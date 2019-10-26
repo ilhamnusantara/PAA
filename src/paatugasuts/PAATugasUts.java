@@ -17,10 +17,11 @@ public class PAATugasUts {
     public static void main(String[] args) {
         // TODO code application logic here
         Scanner inp = new Scanner(System.in);
-        int[] id = new int[8];
-        String[] nama = new String[8];
-        int[] gaji = new int[8];
-        int temp;
+        int[] id = new int[100];
+        String[] nama = new String[100];
+        int[] gaji = new int[100];
+        int temp, temp2;
+        String temp1;
         System.out.print("Masukkan jumlah inputan : ");
         int pil = inp.nextInt();
         
@@ -42,6 +43,12 @@ public class PAATugasUts {
                     temp = id[x];
                     id[x] = id[y];
                     id[y] = temp;
+                    temp1 = nama[x];
+                    nama[x] = nama[y];
+                    nama[y] = temp1;
+                    temp2 = gaji[x];
+                    gaji[x] = gaji[y];
+                    gaji[y]=temp2;
                 }
             }
         }
@@ -51,6 +58,16 @@ public class PAATugasUts {
             System.out.println(id[j]);
             System.out.println(nama[j]);
             System.out.println(gaji[j]);
+        }
+        
+        System.out.print("Masukkan data yang anda cari : ");
+        String name = inp.next();
+        for(int a=0; a<pil; a++){
+        if(nama[a] == null ? name == null : nama[a].equals(name)){
+            System.out.println("ID : "+ id[a]);
+            System.out.println("Nama : "+ nama[a]);
+            System.out.println("Gaji : "+ gaji[a]);
+        }    
         }
     }
     
